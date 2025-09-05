@@ -12,17 +12,18 @@
         <div class="btn" @click="btnClick"><span></span></div>
       </div>
       <div class="box">
-        <i class="iconfont icon-qq"></i>
-        <i class="iconfont icon-youtube"></i>
+        <i class="iconfont icon-youtube"><LoginOutlined /></i>
+        <i class="iconfont icon-youtube"><TranslationOutlined /></i>
         <i class="iconfont icon-wechat"></i>
         <i class="iconfont icon-douyin"></i>
-        <i class="iconfont icon-bilibili"></i>
+        <i class="iconfont icon-douyin"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
   const btnClick = ()=>{
     const btn = document.querySelector('.btn')
     const box = document.querySelector('.box')

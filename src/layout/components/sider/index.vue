@@ -7,7 +7,7 @@
           <button id="menuBtn" type="button"  @click="handleMenuClick">
             <i class="iconfont icon-hanbaocaidan"></i>
           </button>
-          <h3 class="menuText" :class="{ open2: !system.isCollapsed }">山羊</h3>
+          <h3 class="menuText" :class="{ open2: !system.isCollapsed }">饭在锅里</h3>
         </div>
       </div>
       <ul class="optionsBar">
