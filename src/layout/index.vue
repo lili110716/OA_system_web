@@ -35,6 +35,7 @@ const siderWidth = computed(() => (system.isCollapsed ? '80px' : '260px'))
 .app-layout {
   display: flex;
   min-height: 100vh;
+  background-color: #babbbc;
 }
 
 .sidebar {
@@ -45,11 +46,10 @@ const siderWidth = computed(() => (system.isCollapsed ? '80px' : '260px'))
   flex: 1;
   display: flex;
   flex-direction: column;
-  transition: width 0.3s ease 0.15s;
+  transition: 0.3s ease 0.15s;
   margin: 10px;
   height: calc(100vh - 20px);
 }
-
 .page-content {
   padding: 10px;
   margin-top: 10px;

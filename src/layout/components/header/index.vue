@@ -28,8 +28,10 @@
 }
 .left {
   margin-left: 20px;
+  height: 100%;
 }
 .right {
   margin-left: auto;
+  height: 100%;
 }
 </style>

@@ -26,5 +26,24 @@ const router = createRouter({
     // {name: 'menu', path: '/menu', component: () => import('@/system/menu/index.vue')},
   ],
 })
+// // 全局前置守卫
+// router.beforeEach((to, from, next) => {
+//   // 1. 判断是否需要登录权限
+//   // const requiresAuth = to.meta.requiresAuth
 
+//   // 2. 获取登录状态（这里假设通过localStorage存储登录信息）
+//   const isLogin = !!localStorage.getItem('token')
+
+//   // 3. 判断逻辑
+//   if (isLogin) {
+//     // 已登录，允许访问
+//     next()
+//   } else {
+//     // 未登录，重定向到登录页，并记录当前路径以便登录后返回
+//     next({
+//       path: '/login',
+//       query: { redirect: to.fullPath }, // 存储要跳转的路径
+//     })
+//   }
+// })
 export default router

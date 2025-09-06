@@ -1,5 +1,5 @@
 <template>
-  <div style="height:100%">
+  <div style="height: 100%">
     <div class="shell">
       <div class="photo">
         <img src="./img/1.jpg" alt="" />
@@ -15,22 +15,19 @@
         <i class="iconfont icon-youtube"><LoginOutlined /></i>
         <i class="iconfont icon-youtube"><TranslationOutlined /></i>
         <i class="iconfont icon-wechat"></i>
-        <i class="iconfont icon-douyin"></i>
-        <i class="iconfont icon-douyin"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
-  const btnClick = ()=>{
-    const btn = document.querySelector('.btn')
-    const box = document.querySelector('.box')
-    btn?.classList.toggle('active')
-    box?.classList.toggle('open')
-  }
-
+import { LoginOutlined, TranslationOutlined } from "@ant-design/icons-vue";
+const btnClick = () => {
+  const btn = document.querySelector(".btn");
+  const box = document.querySelector(".box");
+  btn?.classList.toggle("active");
+  box?.classList.toggle("open");
+};
 </script>
 
 <style scoped>
@@ -39,16 +36,16 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
   margin: 0;
 }
 
-
 .shell {
-  width: 330px;
+  width: 400px;
+  background-color: #6866ee;
   height: 100%;
-  transform: translate(-22%, -50%);
   border-radius: 5px;
   background-color: #fafafa;
-  box-shadow: 0 0 2rem #babbbc;
   animation: show-shell 0.5s forwards ease-in-out;
-  margin-top: 59px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0); /* 最后一个值0.5表示50%透明 */
+  position: relative;
 }
 
 @keyframes show-shell {
@@ -69,7 +66,7 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
   overflow: hidden;
   border: 5px solid #fafafa;
   background-color: #fafafa;
-  margin-left: -50px;
+  margin: auto;
   box-shadow: 0 0 0.5rem #babbbc;
   animation: rotate-photo 0.5s forwards ease-in-out;
 }
@@ -82,28 +79,18 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
 
 .photo img {
   width: 100%;
+  height: 100%;
 }
 
 .content {
-  padding: 10px;
   overflow: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  background-image: linear-gradient(to top, #6866ee 0%, #fbc8d4 100%);
+  display: flex;
+  width: 300px;border-radius: 0.5rem;
 }
 
-.content::before {
-  content: '';
-  position: absolute;
-  width: 230px;
-  height: 100px;
-  left: 0;
-  top: -20px;
-  z-index: -1;
-  transform: rotate(-8deg);
-  background-image: linear-gradient(to top, #6866ee 0%, #fbc8d4 100%);
+.content .text {
+  padding: 10px;
 }
 .content .text h3,
 .content .text h6 {
@@ -117,9 +104,8 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
   background-color: rgb(106, 106, 245);
   width: 50px;
   height: 50px;
-  position: absolute;
-  right: 25px;
-  top: 6px;
+  margin: auto;
+  margin-right: 20px;
   border-radius: 50%;
   z-index: 1;
   cursor: pointer;
@@ -158,7 +144,7 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
 
 .content .btn span::before,
 .content .btn span::after {
-  content: '';
+  content: "";
   width: 100%;
   height: 2px;
   position: absolute;
@@ -213,18 +199,18 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
 .box {
   opacity: 0;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #bfa;
   position: absolute;
-  top: 50%;
-  right: -30%;
-  transform: translate(-163%, -50%);
+  top: -6%;
+  right: 10px;
   transition-duration: 0.3s;
   box-shadow: 0 0 10px #fff;
   border: 5px #fff solid;
+  overflow: hidden;
 }
 
 .box::after {
-  content: '';
+  content: "";
   display: block;
   width: 60px;
   height: 60px;
@@ -243,8 +229,6 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
   text-align: center;
   line-height: 60px;
   position: absolute;
-  /* left: 18px; */
-  /* top: calc(60px - 50px / 2); */
   box-shadow: 0 0 10px #fff;
   color: rgb(106, 106, 245);
   background-color: #fff;
@@ -260,35 +244,25 @@ import { LoginOutlined ,TranslationOutlined} from '@ant-design/icons-vue'
 
 .box.open {
   opacity: 1;
+  overflow: visible;
 }
 
 .box.open i {
-  /* left: 20px; */
   opacity: 1;
 }
 
 .box.open i:nth-of-type(1) {
-  transform: rotate(0deg) translateX(90px) rotate(90deg);
-  transition-delay: 0s;
+  transform: rotate(-180deg) translateX(90px) rotate(-90deg);
+  transition-delay: 0.4s;
 }
 
 .box.open i:nth-of-type(2) {
-  transform: rotate(45deg) translateX(90px) rotate(45deg);
-  transition-delay: 0.1s;
-}
-
-.box.open i:nth-of-type(3) {
-  transform: rotate(90deg) translateX(90px) rotate(0deg);
-  transition-delay: 0.2s;
-}
-
-.box.open i:nth-of-type(4) {
-  transform: rotate(135deg) translateX(90px) rotate(-45deg);
+  transform: rotate(-225deg) translateX(90px) rotate(-135deg);
   transition-delay: 0.3s;
 }
 
-.box.open i:nth-of-type(5) {
-  transform: rotate(180deg) translateX(90px) rotate(-90deg);
-  transition-delay: 0.4s;
+.box.open i:nth-of-type(3) {
+  transform: rotate(-270deg) translateX(90px) rotate(0deg);
+  transition-delay: 0.2s;
 }
 </style>
