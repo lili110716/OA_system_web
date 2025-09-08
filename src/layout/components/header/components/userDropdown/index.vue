@@ -6,13 +6,13 @@
       </div>
       <div class="content">
         <div class="text">
-          <h3>Bbusiness card</h3>
-          <h6>BILIBILI-山羊の前端小窝</h6>
+          <h3>{{ userStore.userInfo?.name }}</h3>
+          <h6>{{ userStore.userInfo?.department }}</h6>
         </div>
         <div class="btn" @click="btnClick"><span></span></div>
       </div>
       <div class="box">
-        <i class="iconfont icon-youtube"><LoginOutlined /></i>
+        <i class="iconfont icon-youtube" @click="userStore.Logout"><LoginOutlined /></i>
         <i class="iconfont icon-youtube"><TranslationOutlined /></i>
         <i class="iconfont icon-wechat"></i>
       </div>
@@ -21,13 +21,15 @@
 </template>
 
 <script setup lang="ts">
-import { LoginOutlined, TranslationOutlined } from "@ant-design/icons-vue";
+import { LoginOutlined, TranslationOutlined } from '@ant-design/icons-vue'
+import { useUserInfo } from '@/stores/user'
+const userStore = useUserInfo()
 const btnClick = () => {
-  const btn = document.querySelector(".btn");
-  const box = document.querySelector(".box");
-  btn?.classList.toggle("active");
-  box?.classList.toggle("open");
-};
+  const btn = document.querySelector('.btn')
+  const box = document.querySelector('.box')
+  btn?.classList.toggle('active')
+  box?.classList.toggle('open')
+}
 </script>
 
 <style scoped>
@@ -86,7 +88,8 @@ const btnClick = () => {
   overflow: hidden;
   background-image: linear-gradient(to top, #6866ee 0%, #fbc8d4 100%);
   display: flex;
-  width: 300px;border-radius: 0.5rem;
+  width: 300px;
+  border-radius: 0.5rem;
 }
 
 .content .text {
@@ -144,7 +147,7 @@ const btnClick = () => {
 
 .content .btn span::before,
 .content .btn span::after {
-  content: "";
+  content: '';
   width: 100%;
   height: 2px;
   position: absolute;
@@ -210,7 +213,7 @@ const btnClick = () => {
 }
 
 .box::after {
-  content: "";
+  content: '';
   display: block;
   width: 60px;
   height: 60px;

@@ -4,7 +4,7 @@
     <nav class="menu" :class="{ open: !system.isCollapsed }">
       <div class="actionsBar">
         <div>
-          <button id="menuBtn" type="button"  @click="handleMenuClick">
+          <button id="menuBtn" type="button" @click="handleMenuClick">
             <i class="iconfont icon-hanbaocaidan"></i>
           </button>
           <h3 class="menuText" :class="{ open2: !system.isCollapsed }">饭在锅里</h3>
@@ -12,10 +12,10 @@
       </div>
       <ul class="optionsBar">
         <li class="menuItem">
-          <a href="#" class="menuOption">
+          <div href="#" class="menuOption" @click="goHome">
             <i class="iconfont icon-shouye"></i>
             <h5 class="menuText" :class="{ open2: !system.isCollapsed }">主页</h5>
-          </a>
+          </div>
         </li>
         <li class="menuBreak">
           <hr />
@@ -61,14 +61,16 @@
 import './font/iconfont.css'
 import { onMounted } from 'vue'
 import { useSystem } from '@/stores/system'
+import router from '@/router'
 const system = useSystem()
 // 收集菜单文本元素的引用
-
 // 菜单点击处理函数
 const handleMenuClick = () => {
   system.toggleSidebar()
 }
-
+const goHome = () => {
+  router.push({name: 'home'})
+}
 // 组件挂载后可以访问到DOM元素
 onMounted(() => {
   // 可选：可以在这里做一些初始化操作
