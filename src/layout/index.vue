@@ -40,13 +40,14 @@ const siderWidth = computed(() => (system.isCollapsed ? '80px' : '260px'))
 
 .sidebar {
   border-right: 1px solid #e5e7eb;
+  transition: width 0.3s ease 0.15s;
 }
 
 .main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease 0.15s;
+  transition: margin-left 0.3s ease 0.15s;
   margin: 10px;
   height: calc(100vh - 20px);
 }
