@@ -10,31 +10,9 @@
           <h3 class="menuText" :class="{ open2: !system.isCollapsed }">饭在锅里</h3>
         </div>
       </div>
-      <ul class="optionsBar">
-        <li class="menuItem">
-          <div href="#" class="menuOption" @click="goHome">
-            <i class="iconfont icon-shouye"></i>
-            <h5 class="menuText" :class="{ open2: !system.isCollapsed }">主页</h5>
-          </div>
-        </li>
-        <li class="menuBreak">
-          <hr />
-        </li>
-        <li class="menuItem">
-          <button class="menuOption" type="button">
-            <i class="iconfont icon-tupian"></i>
-            <h5 class="menuText" :class="{ open2: !system.isCollapsed }">Photo album</h5>
-          </button>
-        </li>
-
-        <li class="menuItem">
-          <button class="menuOption" type="button">
-            <i class="iconfont icon-tupian"></i>
-            <h5 class="menuText" :class="{ open2: !system.isCollapsed }">Photo album</h5>
-          </button>
-        </li>
-      </ul>
-      <div class="about" id="about"></div>
+      <div class="optionsBar">
+        <Menu />
+      </div>
       <div class="menuUser">
         <a href="#">
           <div>
@@ -61,15 +39,12 @@
 import './font/iconfont.css'
 import { onMounted } from 'vue'
 import { useSystem } from '@/stores/system'
-import router from '@/router'
+import Menu from './components/menu/index.vue'
 const system = useSystem()
 // 收集菜单文本元素的引用
 // 菜单点击处理函数
 const handleMenuClick = () => {
   system.toggleSidebar()
-}
-const goHome = () => {
-  router.push({name: 'home'})
 }
 // 组件挂载后可以访问到DOM元素
 onMounted(() => {
@@ -110,9 +85,10 @@ onMounted(() => {
 
 .menu .actionsBar {
   width: 100%;
-  height: 10%;
+  height: 70px;
   padding: 0.5rem;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .menu .actionsBar div {
@@ -148,46 +124,11 @@ onMounted(() => {
 
 .menu .optionsBar {
   overflow: hidden;
-  display: flex;
   width: 100%;
-  height: 60%;
+  height: calc(100% - 200px);
   padding: 0 0.5rem;
   align-items: center;
   flex-direction: column;
-}
-
-.menu .optionsBar .menuItem {
-  width: 100%;
-  height: 45px;
-  margin: 0.3rem;
-}
-
-.menu .optionsBar .menuItem .menuOption {
-  font-size: 1rem;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border-radius: 0.5rem;
-  transition: 0.3s ease;
-}
-
-.menu .optionsBar .menuItem .menuOption:hover {
-  background-color: #364152;
-}
-
-.menu .optionsBar .menuItem .menuOption i {
-  width: 45px;
-  text-align: center;
-  color: #fff;
-}
-
-.menu .optionsBar .menuItem .menuOption h5 {
-  width: calc(100% - 45px);
 }
 
 .menuText {
@@ -239,8 +180,9 @@ onMounted(() => {
 .menu .themeBar {
   overflow: hidden;
   width: 100%;
-  height: 10%;
+  height: 60px;
   padding: 0.5rem;
+
 }
 
 .menu .themeBar div {
@@ -271,7 +213,8 @@ onMounted(() => {
 
 .menu .menuUser {
   width: 100%;
-  height: 10%;
+  height: 60px;
+  overflow: hidden ;
 }
 
 .menu .menuUser a {

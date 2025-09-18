@@ -9,5 +9,31 @@ export const useSystem = defineStore('systemInfo', () => {
     isCollapsed.value = !isCollapsed.value
     console.log('Sidebar is now', isCollapsed.value ? 'collapsed' : 'expanded')
   }
-  return { isCollapsed, toggleSidebar }
+  interface MenuItem {
+    id: number
+    title: string
+    isOpen: boolean
+    children: { id: number; title: string; name: string }[]
+  }
+  const menus = ref<MenuItem[]>([
+    {
+      id: 1,
+      title: 'Dashboard',
+      isOpen: false,
+      children: [
+        { id: 11, title: 'Home', name: 'home' },
+        { id: 12, title: 'Analytics', name: 'analytics' },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Settings',
+      isOpen: false,
+      children: [
+        { id: 21, title: 'Apply', name: 'Apply' },
+        { id: 22, title: 'Myinfo', name: 'MyInfo' },
+      ],
+    },
+  ])
+  return { isCollapsed, toggleSidebar, menus }
 })
